@@ -3,7 +3,7 @@ import json
 import pytest 
 BASE_URL = "https://dummyjson.com"
 
-
+@pytest.mark.api
 def test_get_all_products():
     response = requests.get(f"{BASE_URL}/products")
     print(response.status_code)
@@ -14,7 +14,7 @@ def test_get_all_products():
     assert "products" in body
     assert len(body["products"]) > 0
 
-
+@pytest.mark.api
 def test_get_single_product():
     response = requests.get(f"{BASE_URL}/products/1")
     assert response.status_code == 200
@@ -25,7 +25,7 @@ def test_get_single_product():
     assert body["id"] == 1
     assert "title" in body
 
-
+@pytest.mark.api
 def test_get_invalid_product():
     response = requests.get(f"{BASE_URL}/products/999999")
 

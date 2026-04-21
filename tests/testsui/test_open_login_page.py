@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 import time
 import pytest 
-
+@pytest.mark.ui
 def test_open_saucedemo_login_page():
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="msedge" , headless=True)

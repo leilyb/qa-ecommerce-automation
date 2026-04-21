@@ -4,6 +4,7 @@ import pytest
 
 
 @pytest.mark.smoke
+@pytest.mark.ui
 def test_successful_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -22,6 +23,7 @@ def test_successful_login():
 
 
 @pytest.mark.regression
+@pytest.mark.ui
 def test_invalid_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
