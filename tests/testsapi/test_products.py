@@ -1,5 +1,6 @@
 import requests
 import json
+import pytest 
 BASE_URL = "https://dummyjson.com"
 
 

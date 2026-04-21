@@ -1,6 +1,9 @@
 from playwright.sync_api import sync_playwright
 import time
+import pytest 
 
+
+@pytest.mark.smoke
 def test_successful_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -18,7 +21,7 @@ def test_successful_login():
         browser.close()
 
 
-
+@pytest.mark.regression
 def test_invalid_login():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
