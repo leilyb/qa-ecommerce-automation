@@ -8,7 +8,7 @@ BASE_URL = "https://dummyjson.com"
 def test_get_all_products():
     response = requests.get(f"{BASE_URL}/products")
     print(response.status_code)
-    assert response.status_code == 20000
+    assert response.status_code == 200
 
     body = response.json()
     # print(body)
