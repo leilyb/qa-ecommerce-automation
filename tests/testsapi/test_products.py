@@ -3,6 +3,7 @@ import json
 import pytest 
 BASE_URL = "https://dummyjson.com"
 
+@pytest.mark.smoke
 @pytest.mark.api
 def test_get_all_products():
     response = requests.get(f"{BASE_URL}/products")
