@@ -3,11 +3,12 @@ import json
 import pytest 
 BASE_URL = "https://dummyjson.com"
 
+@pytest.mark.smoke
 @pytest.mark.api
 def test_get_all_products():
     response = requests.get(f"{BASE_URL}/products")
     print(response.status_code)
-    assert response.status_code == 200
+    assert response.status_code == 20000
 
     body = response.json()
     # print(body)
