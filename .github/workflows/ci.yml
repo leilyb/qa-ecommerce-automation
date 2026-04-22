@@ -30,3 +30,10 @@ jobs:
         with:
           name: smoke-test-report
           path: report.html
+
+      - name: Send Telegram alert on failure
+        if: failure()
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="❌ CI failed in repo: ${{ github.repository }} | workflow: ${{ github.workflow }} | branch: ${{ github.ref_name }} | commit: ${{ github.sha }}"    
